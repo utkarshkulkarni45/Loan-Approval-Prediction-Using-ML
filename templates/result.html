@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container result-container">
+        <h1>Loan Approval Prediction</h1>
+        <p>The predicted loan status is: <span class="{{ result.lower().replace(' ', '-') }}">{{ result }}</span></p>
+        <a href="/">Go Back to Prediction Form</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 150px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-title">Loan Approval Prediction</div>
+        <div class="navbar-tagline">Predicting Loan Approvals with Confidence</div>
+    </nav>
+    <div class="container">
+        <h1>Loan Application Details</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group tooltip">
+                <label for="no_of_dependents">Number of Dependents:</label>
+                <input type="number" id="no_of_dependents" name="no_of_dependents" required
+                       title="Enter the number of individuals who depend on the applicant for financial support.">
+                <span class="tooltiptext">Number of individuals who depend on the applicant.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="education">Education:</label>
+                <select id="education" name="education" required
+                        title="Select the highest level of education attained by the applicant.">
+                    <option value=" Graduate">Graduate</option>
+                    <option value=" Not Graduate">Not Graduate</option>
+                </select>
+                <span class="tooltiptext">Highest level of education of the applicant.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="self_employed">Self Employed:</label>
+                <select id="self_employed" name="self_employed" required
+                        title="Indicate if the applicant is self-employed or working for an organization.">
+                    <option value=" Yes">Yes</option>
+                    <option value=" No">No</option>
+                </select>
+                <span class="tooltiptext">Applicant's employment status.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="income_annum">Annual Income:</label>
+                <input type="number" id="income_annum" name="income_annum" required
+                       title="Enter the applicant's total annual income in the local currency.">
+                <span class="tooltiptext">Applicant's total annual income.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="loan_amount">Loan Amount:</label>
+                <input type="number" id="loan_amount" name="loan_amount" required
+                       title="Enter the total amount of loan the applicant is requesting.">
+                <span class="tooltiptext">Total loan amount requested by the applicant.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="loan_term">Loan Term (months):</label>
+                <input type="number" id="loan_term" name="loan_term" required
+                       title="Enter the duration for which the loan is required, in months.">
+                <span class="tooltiptext">Duration of the loan in months.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="cibil_score">CIBIL Score:</label>
+                <input type="number" id="cibil_score" name="cibil_score" required
+                       title="Enter the applicant's CIBIL score, a measure of creditworthiness.">
+                <span class="tooltiptext">Applicant's creditworthiness score.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="residential_assets_value">Residential Assets Value:</label>
+                <input type="number" id="residential_assets_value" name="residential_assets_value" required
+                       title="Enter the current market value of the applicant's residential properties.">
+                <span class="tooltiptext">Current market value of residential properties.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="commercial_assets_value">Commercial Assets Value:</label>
+                <input type="number" id="commercial_assets_value" name="commercial_assets_value" required
+                       title="Enter the current market value of the applicant's commercial properties.">
+                <span class="tooltiptext">Current market value of commercial properties.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="luxury_assets_value">Luxury Assets Value:</label>
+                <input type="number" id="luxury_assets_value" name="luxury_assets_value" required
+                       title="Enter the current market value of the applicant's luxury assets (e.g., high-end vehicles, jewelry).">
+                <span class="tooltiptext">Current market value of luxury assets.</span>
+            </div>
+            <div class="form-group tooltip">
+                <label for="bank_asset_value">Bank Asset Value:</label>
+                <input type="number" id="bank_asset_value" name="bank_asset_value" required
+                       title="Enter the total value of the applicant's assets held in bank accounts.">
+                <span class="tooltiptext">Total value of assets in bank accounts.</span>
+            </div>
+            <button type="submit">Predict Loan Approval</button>
+        </form>
+    </div>
+    <div class="footer-credit">Made by UTKARSH</div>
+</body>
+</html>
