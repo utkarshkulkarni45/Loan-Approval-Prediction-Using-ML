@@ -101,8 +101,5 @@ This application is designed to be easily deployed on platforms like Render.
 
 ## Credits
 
-This web application was developed by Your Name.
+This web application was developed by UTKARSH.
 
-## License
-
-[Optional: Add your license information here, e.g., MIT License]
